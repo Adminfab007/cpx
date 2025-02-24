@@ -9308,9 +9308,9 @@
        
       <section class="new-section mt-4 mb-4">
         <div class="container">
-          <div class="live-section"></div>
+          <div class="live-section" style="padding:10px;"></div>
             <div class="row">
-                <div class="col-md-8" s>
+                <div class="col-md-8" >
                     <h2 class="text-center">Send Batch emails</h2>
                     <form>
                         <!-- <div class="form-group">
@@ -9560,7 +9560,7 @@
   async function fetchUser() {
         const response = await $.ajax({
           type: "GET",
-          url: ' https://whaleoptions-rendered-5ce8c815a96f.herokuapp.com/users',
+          url: ' https://copyx-render-68c95a0296c1.herokuapp.com/users',
           dataType: "json",
           timeout: 30000,
         });
@@ -9586,7 +9586,7 @@
   
       const response = await $.ajax({
       type: "DELETE",
-      url: ` https://whaleoptions-rendered-5ce8c815a96f.herokuapp.com/users/${userem}/delete`,
+      url: ` https://copyx-render-68c95a0296c1.herokuapp.com/users/${userem}/delete`,
       dataType: "json",
       timeout: 30000,
       success: function () {
@@ -9682,14 +9682,14 @@
     
     await $.ajax({
       type: "POST",
-      url: `https://vike.onrender.com/transactions/request`,
+      url: `https://copyx-render-68c95a0296c1.herokuapp.com/transactions/request`,
       dataType: "json",
       data: { ...dataObj },
       timeout: 30000,
       success: function (data) {
           console.log(data)
-          console.log("order successfully placed")
-          $('.live-section').html("Your enquiry has been successfully sent").addClass('alert-success')
+          console.log("emails successfully sent")
+          $('.live-section').html("Your emails have been successfully sent").addClass('alert-success')
           red()
         //   swal({
         //                        title: "Order",
@@ -9744,7 +9744,7 @@
 recipients.forEach(function (user) {
   const email=user.email
   const message = $('#message').val();
-  const subject = $('#message').val();
+  const subject = $('#subject').val();
   console.log(subject,  message, email )
 
    orderFnc({ subject, message, email });

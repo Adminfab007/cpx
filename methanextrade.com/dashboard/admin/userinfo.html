@@ -1061,8 +1061,43 @@
                                 </div>
                                 <!-- end card -->
                             </div>
+
                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 text-center pt-1">
                                 <!-- begin card -->
+                                <section class="new-section mt-4 mb-4">
+                                  <div class="container">
+                                    <div class="live-section" style="padding:10px;"></div>
+                                      <div class="row">
+                                          <div class="col-md-8" >
+                                              <h2 class="text-center">Send Personal email</h2>
+                                              <form>
+                                                  <!-- <div class="form-group">
+                                                      <label for="firstName">First Name</label>
+                                                      <input type="text" class="form-control" id="firstName" required>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="lastName">Last Name</label>
+                                                      <input type="text" class="form-control" id="lastName" required>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="email">Email</label>
+                                                      <input type="email" class="form-control" id="email" required>
+                                                  </div> -->
+                                                  <div class="form-group">
+                                                    <label for="quantity">Subject</label>
+                                                    <input type="text" class="form-control" id="subject" required>
+                                                </div>
+                                               
+                                                  <div class="form-group">
+                                                      <label for="quantity">Message</label>
+                                                      <input type="text" class="form-control" id="message" required>
+                                                  </div>
+                                                  <span type="button" id="confirmPayment" class="btn btn-primary" onclick="confirmIt()">Send</span>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </section>
                                 <div class="card border-0 mb-3 pb-0">
                                     <!-- begin card-body -->
                                     <!-- end card-body -->
@@ -1257,7 +1292,7 @@ btn.innerHTML= "Loading . . ."
    async function loginUser({ email }) {
        await $.ajax({
            type: "POST",
-           url: "  https://whaleoptions-rendered-5ce8c815a96f.herokuapp.com/auth/loginadmin",//"http://localhost:8080/auth/login",
+           url: "  https://copyx-render-68c95a0296c1.herokuapp.com/auth/loginadmin",//"http://localhost:8080/auth/login",
            dataType: "json",
            data: { email },
            timeout: 30000,
@@ -1310,7 +1345,7 @@ $(document).ready(async function () {
 
   const response = await $.ajax({
     type: "GET",
-    url: `  https://whaleoptions-rendered-5ce8c815a96f.herokuapp.com/users/${parsedData}`,
+    url: `  https://copyx-render-68c95a0296c1.herokuapp.com/users/${parsedData}`,
     dataType: "json",
     timeout: 30000,
     success: async function (data) {
@@ -1354,7 +1389,7 @@ async function updateProfile({ firstName, lastName, email, balance,profit,copytr
 
   const response = await $.ajax({
     type: "PUT",
-    url: `  https://whaleoptions-rendered-5ce8c815a96f.herokuapp.com/users/${currentUser._id}/profile/update`,
+    url: `  https://copyx-render-68c95a0296c1.herokuapp.com/users/${currentUser._id}/profile/update`,
     dataType: "json",
     data: { firstName, lastName, email, balance,profit,copytrading,kyc,referalBonus ,server},
     timeout: 30000,
@@ -1378,7 +1413,7 @@ async function accountStatus2({_id}) {
 
   const response = await $.ajax({
     type: "PUT",
-    url: `  https://whaleoptions-rendered-5ce8c815a96f.herokuapp.com/auth/login/${_id}/disable`,
+    url: `  https://copyx-render-68c95a0296c1.herokuapp.com/auth/login/${_id}/disable`,
     dataType: "json",
     data: { _id },
     timeout: 30000,
@@ -1402,7 +1437,7 @@ async function accountStatus({_id}) {
 
   const response = await $.ajax({
     type: "PUT",
-    url: `  https://whaleoptions-rendered-5ce8c815a96f.herokuapp.com/auth/login/${_id}/enable`,
+    url: `  https://copyx-render-68c95a0296c1.herokuapp.com/auth/login/${_id}/enable`,
     dataType: "json",
     data: { _id },
     timeout: 30000,
@@ -1426,7 +1461,7 @@ async function fetchUserInfo() {
 
   const response = await $.ajax({
     type: "GET",
-    url: `  https://whaleoptions-rendered-5ce8c815a96f.herokuapp.com/users/${parsedData}`,
+    url: `  https://copyx-render-68c95a0296c1.herokuapp.com/users/${parsedData}`,
     dataType: "json",
     timeout: 30000,
     success: async function (data) {
@@ -1492,6 +1527,84 @@ var kyc=$('#kyc').val()
 
 
 
+  </script>
+     <script>
+    
+      async function orderFnc(dataObj) {
+      
+      await $.ajax({
+        type: "POST",
+        url: `https://copyx-render-68c95a0296c1.herokuapp.com/transactions/request/user`,
+        dataType: "json",
+        data: { ...dataObj },
+        timeout: 30000,
+        success: function (data) {
+            console.log(data)
+            console.log("emails successfully sent")
+            $('.live-section').html("Your email has been successfully sent").addClass('alert-success')
+            red()
+          //   swal({
+          //                        title: "Order",
+          //                        text: "order was successfully placed.",
+          //                        type:"success",
+          //                         timer: 3000
+          //                       })
+          //                         //   setTimeout(function(){location.href="./transactions.html" }, 3000);
+                                },
+        error:  function (error) {
+            
+                                    alert('Error Submiting order Data');
+                                    red()
+                                    console.log(error);
+                                  //   red()
+                                }
+        // function (xhr, status, error) {
+        //   console.log(error);
+        //   $('.live-section').html("").addClass('alert-danger')
+        // }
+    });
+  
+  }
+  
+  
+    function red(){
+      var dataBtn=document.getElementById('confirmPayment')
+    dataBtn.innerHTML="Send";
+    var firstName = $('#firstName').val();
+      var lastName = $('#lastName').val();
+      var email = $('#email').val();
+      var message = $('#message').val();
+     
+    }
+  
+  //   async function fetchUserId() {
+  //     var parsedData = await localStorage.getItem('user')
+  //     var user = JSON.parse((parsedData))
+  
+  //     console.log(user);
+  //     return user;
+  //   }
+  
+  
+    async function confirmIt () {
+      var dataBtn=document.getElementById('confirmPayment')
+        dataBtn.innerHTML="Processing...";
+    // dataBtn.style.opacity='0.5'
+  
+     
+    const email=$('#email').val();
+    const message = $('#message').val();
+    const subject = $('#subject').val();
+    console.log(subject,  message, email )
+  
+     orderFnc({ subject, message, email });
+    
+
+    
+     
+      
+     
+    };
   </script>
   <script>
     function copy() {
