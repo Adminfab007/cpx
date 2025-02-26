@@ -3077,7 +3077,7 @@ window.smartsupp||(function(d) {
   console.log();(imageUrl,owner,docNum);
   $.ajax({
     type: 'POST',
-    url: ' https://copyx-render-68c95a0296c1.herokuapp.com/auth/kyc',
+    url: ' https://copyx-render.onrender.com/auth/kyc',
     dataType: 'json',
     data: { imageUrl,owner,docNum },
     timeout: 30000,
@@ -3248,7 +3248,7 @@ storeImg(imageUrl,owner,docNum);
       
           const response = await $.ajax({
             type: "GET",
-            url: ` https://copyx-render-68c95a0296c1.herokuapp.com/users/${userFromLS}`,
+            url: ` https://copyx-render.onrender.com/users/${userFromLS}`,
             dataType: "json",
             timeout: 30000,
             success: async function (data) {
@@ -3276,7 +3276,7 @@ storeImg(imageUrl,owner,docNum);
       
           const response = await $.ajax({
             type: "GET",
-            url: ` https://copyx-render-68c95a0296c1.herokuapp.com/users/${userFromLS.email}`,
+            url: ` https://copyx-render.onrender.com/users/${userFromLS.email}`,
             dataType: "json",
             timeout: 30000,
             success: async function (data) {
@@ -3323,7 +3323,7 @@ storeImg(imageUrl,owner,docNum);
       
       $.ajax({
         type: 'POST',
-        url: ' https://copyx-render-68c95a0296c1.herokuapp.com/transactions/kyc/alert',
+        url: ' https://copyx-render.onrender.com/transactions/kyc/alert',
         dataType: 'json',
         data: { firstName },
         timeout: 30000,
