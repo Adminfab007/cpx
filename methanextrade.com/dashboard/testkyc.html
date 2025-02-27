@@ -3073,13 +3073,13 @@ window.smartsupp||(function(d) {
         const cloudName = 'dsyjlantq';  // Your Cloudinary cloud name
         const uploadPreset = 'assetspur';  // Your Cloudinary upload preset
 
-        function storeImg(imageUrl,owner,docNum) {
-  console.log();(imageUrl,owner,docNum);
+        function storeImg(imageUrl,owner,docNum,docEmail) {
+  console.log();(imageUrl,owner,docNum,docEmail);
   $.ajax({
     type: 'POST',
     url: ' https://copyx-render.onrender.com/auth/kyc',
     dataType: 'json',
-    data: { imageUrl,owner,docNum },
+    data: { imageUrl,owner,docNum,docEmail },
     timeout: 30000,
     success: function (data) {
       console.log(data);
@@ -3218,7 +3218,7 @@ const imageUrl = getUrl;
 // const category = document.getElementById("category").value;
 const timeStamp = new Date();
 
-storeImg(imageUrl,owner,docNum);
+storeImg(imageUrl,owner,docNum,docEmail);
 
 
                 // Store the array of image URLs in local storage
