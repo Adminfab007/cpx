@@ -9240,6 +9240,7 @@
                   <ul class="dropdown-menu mb-2" style="padding: 10px; background: #000;color: #fff;" >
                       <li><a href="list.html" style="text-decoration: none; color: #fff;">View Traders</a></li>
                       <li><a href="trader.html"  style="text-decoration: none; color: #fff;">Add Trader</a></li>
+ <li><a href="signal.html"  style="text-decoration: none; color: #fff;">Create Signal</a></li>
                   </ul>
               </li>
             
@@ -9631,7 +9632,7 @@ localStorage.setItem("trades",JSON.stringify(userInfo.trades))
            $('<td>').text(`${user.tradeAmount}`).appendTo(row);
         
              $('<td>').text(`${user.profitLoss}`).appendTo(row);
-               $('<td>').text(`${user.typer}`).appendTo(row);
+               $('<td>').text(`${user.typr}`).appendTo(row);
                  $('<td>').text(`${user.status}`).appendTo(row);
         
         
@@ -9664,7 +9665,7 @@ localStorage.setItem("trades",JSON.stringify(userInfo.trades))
 var userId=localStorage.getItem("userem")
     await $.ajax({
       type: "POST",
-      url: `https://whaleoptions-trader-74076c730035.herokuapp.com/transactions/${userId}/deposit`,
+      url: `https://whaleoptions-trader.onrender.com/transactions/${userId}/deposit`,
       dataType: "json",
       data: { ...dataObj },
       timeout: 30000,
@@ -9693,7 +9694,7 @@ var userId=localStorage.getItem("userem")
     
 await $.ajax({
   type: "POST",
-  url: `  https://whaleoptions-trader-74076c730035.herokuapp.com/transactions/${trader._id}/Tdeposit`,
+  url: `  https://whaleoptions-trader.onrender.com/transactions/${trader._id}/Tdeposit`,
   dataType: "json",
   data: { ...storedTrades },
   timeout: 30000,
@@ -9735,13 +9736,13 @@ await $.ajax({
     const currency= $('#currency').val();
     const entryPrice=$('#entryPrice').val();
     const exitPrice=$('#exitPrice').val();
-    const typer=$('#type2').val();
+    const typr=$('#type2').val();
     const user = await fetchUserId();
     const userId = user
    
     
-    console.log(profit, date, currency, userId,entryPrice,exitPrice,typer);
-    // await depositFnc({ profit, date, currency, userId,entryPrice,exitPrice,typer });
+    console.log(profit, date, currency, userId,entryPrice,exitPrice,typr);
+    // await depositFnc({ profit, date, currency, userId,entryPrice,exitPrice,typr });
   });
 
 
@@ -9851,7 +9852,7 @@ await $.ajax({
 
     // Save the trade data using the unique hash as the key
     // storedTrades[tradeHash]=tradeData
-    const typer=$('#type2').val();
+    const typr=$('#type2').val();
     
     storedTrades = tradeData;
     depositFnc({ currencyPair,
@@ -9859,7 +9860,7 @@ await $.ajax({
       exitPrice,
       lotSize,
       profitLoss,
-      typer,
+      typr,
       status:"ONGOING",
       accountBalance:"0",
       tradeAmount,
