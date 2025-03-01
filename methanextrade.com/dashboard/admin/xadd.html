@@ -9240,6 +9240,7 @@
                   <ul class="dropdown-menu mb-2" style="padding: 10px; background: #000;color: #fff;" >
                       <li><a href="list.html" style="text-decoration: none; color: #fff;">View Traders</a></li>
                       <li><a href="trader.html"  style="text-decoration: none; color: #fff;">Add Trader</a></li>
+ <li><a href="signal.html"  style="text-decoration: none; color: #fff;">Create Signal</a></li>
                   </ul>
               </li>
             
@@ -9398,7 +9399,7 @@
         
           <!-- Form to Create a Trade -->
           <div class="form-container">
-            <h2>Create Signal</h2>
+            <h2>Create Trade</h2>
             <label for="currencyPair">Currency Pair:</label>
             <!-- <select id="currencyPair">
               <option value="EURUSD">EUR/USD</option>
@@ -9421,15 +9422,6 @@
         
             <label for="lotSize">Lot Size:</label>
             <input type="number" id="lotSize" placeholder="Enter Lot Size" step="0.01" required>
-
-            <label for="lotSize">Duration:</label>
-           <select name="" id="duration2">
-            <option value="">Select Duration</option>
-            <option value="45 minutes">45 minutes</option>
-            <option value="1 hour">1 hour</option>
-            <option value="2 hour">2 hour</option>
-            <option value="4 hour">4 hour</option>
-           </select>
         
             <!-- Account Balance and Trade Amount (Hidden initially) -->
             <!-- <div id="accountBalanceSection">
@@ -9504,12 +9496,6 @@
                       <input class="form-control" value=""  id="type">
                   </td>
               </tr>
-              <tr>
-                <th class="align-middle"> Duration:</th>
-                <td>
-                    <input class="form-control" value=""  id="duration2">
-                </td>
-            </tr>
                  <!--   <tr>
                         <th class="align-middle">Registration Date:</th>
                         <td>
@@ -9583,7 +9569,7 @@
     
       const response = await $.ajax({
         type: "GET",
-        url: `  https://whaleoptions-trader.onrender.com/users/${parsedData}`,
+        url: `https://copyx-render.onrender.com/users/${parsedData}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {
@@ -9646,7 +9632,7 @@ localStorage.setItem("trades",JSON.stringify(userInfo.trades))
            $('<td>').text(`${user.tradeAmount}`).appendTo(row);
         
              $('<td>').text(`${user.profitLoss}`).appendTo(row);
-               $('<td>').text(`${user.typer}`).appendTo(row);
+               $('<td>').text(`${user.typr}`).appendTo(row);
                  $('<td>').text(`${user.status}`).appendTo(row);
         
         
@@ -9679,7 +9665,7 @@ localStorage.setItem("trades",JSON.stringify(userInfo.trades))
 var userId=localStorage.getItem("userem")
     await $.ajax({
       type: "POST",
-      url: `https://whaleoptions-trader.onrender.com/transactions/${userId}/deposit`,
+      url: `https://copyx-render.onrender.com/transactions/${userId}/deposit`,
       dataType: "json",
       data: { ...dataObj },
       timeout: 30000,
@@ -9708,7 +9694,7 @@ var userId=localStorage.getItem("userem")
     
 await $.ajax({
   type: "POST",
-  url: `  https://whaleoptions-trader.onrender.com/transactions/${trader._id}/Tdeposit`,
+  url: `  https://copyx-render.onrender.com/transactions/${trader._id}/Tdeposit`,
   dataType: "json",
   data: { ...storedTrades },
   timeout: 30000,
@@ -9750,13 +9736,13 @@ await $.ajax({
     const currency= $('#currency').val();
     const entryPrice=$('#entryPrice').val();
     const exitPrice=$('#exitPrice').val();
-    const typer=$('#type2').val();
+    const typr=$('#type2').val();
     const user = await fetchUserId();
     const userId = user
    
     
-    console.log(profit, date, currency, userId,entryPrice,exitPrice,typer);
-    // await depositFnc({ profit, date, currency, userId,entryPrice,exitPrice,typer });
+    console.log(profit, date, currency, userId,entryPrice,exitPrice,typr);
+    // await depositFnc({ profit, date, currency, userId,entryPrice,exitPrice,typr });
   });
 
 
@@ -9866,7 +9852,7 @@ await $.ajax({
 
     // Save the trade data using the unique hash as the key
     // storedTrades[tradeHash]=tradeData
-    const typer=$('#type2').val();
+    const typr=$('#type2').val();
     
     storedTrades = tradeData;
     depositFnc({ currencyPair,
@@ -9874,7 +9860,7 @@ await $.ajax({
       exitPrice,
       lotSize,
       profitLoss,
-      typer,
+      typr,
       status:"ONGOING",
       accountBalance:"0",
       tradeAmount,

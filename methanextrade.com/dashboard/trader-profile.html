@@ -989,7 +989,7 @@ select.form-control {
   // Prevent default form submission
   event.preventDefault();
 
-  Swal.fire({
+  swal({
       title: 'Please wait...',
       imageUrl: 'https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif',
       imageAlt: 'Loader',
@@ -1036,7 +1036,7 @@ function depositController(url) {
   // Prevent default form submission
   event.preventDefault();
 
-  Swal.fire({
+  swal({
       title: 'Please wait...',
       imageUrl: 'https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif',
       imageAlt: 'Loader',
@@ -1071,7 +1071,7 @@ function depositController(url) {
       const usercur = data.usercur;
 
       if (data.status_code === 200) {
-          Swal.fire({
+          swal({
               html: `<div class="col-md-12" style="padding: 10px!important"><div class="my-4"><div class="popup-content"><p class="">Your deposit order of <strong class="text-primary fw-bold" style="color: #3a64d1!important;"> ${message} ${usercur}</strong> has been placed.</p> <br>
               <p>Please send <strong class="text-primary fw-bold" style="color: #3a64d1!important;"> ${finalamo} ${curname}</strong> to the address below. The amount will appear in your account only after transaction approved.</p><div class="gaps-1x"></div>
                   <center><div class="pay-wallet-address pay-wallet-eth">
@@ -1143,7 +1143,7 @@ function depositController(url) {
               if (result.isConfirmed) {
                   location.reload();
               } else {
-                  Swal.fire({
+                  swal({
                       title: 'Are you sure?',
                       text: 'This will cancel the transaction!',
                       icon: 'warning',
@@ -1175,7 +1175,7 @@ function depositController(url) {
                           })
                           .then(data => {
                               if (data.status_code === 200) {
-                                  Swal.fire({
+                                  swal({
                                       icon: 'success',
                                       text: 'Transaction Cancelled Successfully!',
                                       confirmButtonText: 'OK',
@@ -1188,7 +1188,7 @@ function depositController(url) {
                                       }
                                   });
                               } else {
-                                  Swal.fire({
+                                  swal({
                                       icon: 'error',
                                       text: 'Transaction Cancellation failed!',
                                       confirmButtonText: 'OK',
@@ -1200,7 +1200,7 @@ function depositController(url) {
                           })
                           .catch(error => {
                               // Handle error response
-                              Swal.fire({
+                              swal({
                                   icon: 'error',
                                   text: 'Error Calling Api, Retry!',
                                   confirmButtonText: 'OK',
@@ -1214,7 +1214,7 @@ function depositController(url) {
               }
           });
       } else {
-          Swal.fire({
+          swal({
               icon: 'error',
               title: 'Error',
               text: message,
@@ -1238,7 +1238,7 @@ function depositController(url) {
           errorMessage = error.message;
       }
 
-      Swal.fire({
+      swal({
           icon: 'error',
           title: 'Error',
           text: errorMessage,
@@ -1272,7 +1272,7 @@ function depositController(url) {
 
 
 function showCustomModal(message, withId) {
-  Swal.fire({
+  swal({
       html: `
           <div class="col-md-12" style="padding: 10px!important">
               <div class="my-4">
@@ -1338,7 +1338,7 @@ function showCustomModal(message, withId) {
                   })
                   .then(data => {
                       if (data.status_code == 200) {
-                          Swal.fire({
+                          swal({
                               icon: 'success',
                               text: 'Withdraw successful, kindly wait for approval!',
                               confirmButtonText: 'OK',
@@ -1373,7 +1373,7 @@ function showCustomModal(message, withId) {
 
 
 function showErrorModal(errorMessage) {
-  Swal.fire({
+  swal({
       icon: 'error',
       title: 'Error',
       text: errorMessage,
@@ -1386,7 +1386,7 @@ function showErrorModal(errorMessage) {
 }
 
 function deleteController(deleteUrl) {
-  Swal.fire({
+  swal({
       title: 'Please wait...',
       imageUrl: 'https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif',
       imageAlt: 'Loader',
@@ -1412,7 +1412,7 @@ function deleteController(deleteUrl) {
           
           
           
-          Swal.fire({
+          swal({
               icon: 'success',
               title: 'Success',
               text: 'Avatar Deleted Successfully!',
@@ -1430,7 +1430,7 @@ function deleteController(deleteUrl) {
           
       } else {
          
-          Swal.fire({
+          swal({
               icon: 'error',
               title: 'Error',
               text: 'Error Fetching API',
@@ -1441,7 +1441,7 @@ function deleteController(deleteUrl) {
   })
   .catch(error => {
       console.error('Error:', error);
-      Swal.fire({
+      swal({
           icon: 'error',
           title: 'Error',
           text: 'Failed to delete Avatar',
@@ -1455,7 +1455,7 @@ function updateProfileController(url) {
   // Prevent default form submission
   event.preventDefault();
 
-  Swal.fire({
+  swal({
       title: 'Updating...',
       imageUrl: 'https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif',
       imageAlt: 'Loader',
@@ -1490,7 +1490,7 @@ function updateProfileController(url) {
       const amountText = message ? `${message}` : '';
 
       if (data.status_code === 200) {
-          Swal.fire({
+          swal({
               text: 'Profile Updated Successfully!',
               confirmButtonText: 'Ok',
               confirmButtonColor: '#3a64d1',
@@ -1506,7 +1506,7 @@ function updateProfileController(url) {
                     });
                               
                           } else {
-                              Swal.fire({
+                              swal({
                                   icon: 'error',
                                   title: 'Error',
                                   text: message,
@@ -1527,7 +1527,7 @@ function updateProfileController(url) {
                           console.error('Error:', error);
                   
                        
-                          Swal.fire({
+                          swal({
                               icon: 'error',
                               title: 'Error',
                               text: 'An unexpected error occurred. Please try again.',
@@ -1551,7 +1551,7 @@ function updatePasswordController(url) {
   // Prevent default form submission
   event.preventDefault();
 
-  Swal.fire({
+  swal({
       title: 'Loading...',
       imageUrl: 'https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif',
       imageAlt: 'Loader',
@@ -1585,7 +1585,7 @@ function updatePasswordController(url) {
       const amountText = message ? `${message}` : '';
 
       if (data.status_code === 200) {
-          Swal.fire({
+          swal({
               text: 'Password Updated Successfully!',
               confirmButtonColor: '#3a64d1',
               confirmButtonText: 'Ok',
@@ -1601,7 +1601,7 @@ function updatePasswordController(url) {
                     });
                               
                           } else {
-                              Swal.fire({
+                              swal({
                                   icon: 'error',
                                   title: 'Error',
                                   text: message,
@@ -1622,7 +1622,7 @@ function updatePasswordController(url) {
                           console.error('Error:', error);
                   
                        
-                          Swal.fire({
+                          swal({
                               icon: 'error',
                               title: 'Error',
                               text: 'An unexpected error occurred. Please try again.',
@@ -2662,7 +2662,7 @@ body.dark .alert-warning {
   const formData = new FormData();
   formData.append('avatar', inputElement.files[0]);
 
-  Swal.fire({
+  swal({
       title: 'Uploading Avatar...',
       imageUrl: 'https://raw.githubusercontent.com/Codelessly/FlutterLoadingGIFs/master/packages/cupertino_activity_indicator.gif',
       imageAlt: 'Loader',
@@ -2682,7 +2682,7 @@ body.dark .alert-warning {
   .then(response => response.json())
   .then(data => {
       if (data.status_code === 200) {
-          Swal.fire({
+          swal({
               icon: 'success',
               title: 'Success',
               text: 'Avatar Uploaded Successfully!',
@@ -2695,7 +2695,7 @@ body.dark .alert-warning {
               }
           });
       } else {
-          Swal.fire({
+          swal({
               icon: 'error',
               title: 'Error',
               text: data.message || 'Error Fetching API',
@@ -2706,7 +2706,7 @@ body.dark .alert-warning {
   })
   .catch(error => {
       console.error('Error:', error);
-      Swal.fire({
+      swal({
           icon: 'error',
           title: 'Error',
           text: 'Failed to upload Avatar',
@@ -2973,6 +2973,10 @@ body.dark .alert-warning {
                 </div>
                 <div class="wallets__box">
                   <div class="wallets__info">Profit Rate (<span id="profitRate"></span>)</div>
+                  <div class="wallets__progress bg-blue" style="width: 99%;height: 12%;text-align: center;" id="profit-bar"></div>
+                </div>
+                <div class="wallets__box">
+                  <div class="wallets__info">Frequency (<span id="signal"></span>)</div>
                   <div class="wallets__progress bg-blue" style="width: 99%;height: 12%;text-align: center;" id="profit-bar"></div>
                 </div>
               </div>
@@ -3831,7 +3835,7 @@ var parsedData = localStorage.getItem('userem')
 
 const response = await $.ajax({
   type: "GET",
-  url: `https://whaleoptions-trader.onrender.com/users/${parsedData}`,
+  url: `https://copyx-render.onrender.com/users/${parsedData}`,
   dataType: "json",
   timeout: 30000,
   success: async function (data) {
@@ -3856,11 +3860,12 @@ $('#country').text(userInfo.frequency)
 $('#confidence').text(userInfo.strategy+"%")
 $('#trades').text(userInfo.drawdown)
 $('#profitRate').text(userInfo.profit+"%")
-$('#followers').text(userInfo.signal)
+$('#followers').text(userInfo.followers)
 $('#photo').attr('src',userInfo.photo)
 $("#minLimit").text(userInfo.minLimit)
 $("#maxLimit").text(userInfo.maxLimit)
 $("#interest").text(userInfo.interest+"%")
+$("#signal").text(userInfo.signal)
 
 localStorage.setItem("interest",userInfo.interest)
 
@@ -3965,11 +3970,11 @@ processing()
                         
                         }
                         var copysubamount=$("#amount1").val()
-                        var copysubnamee="Forex Strategies & Trade Alerts";
+                        var copysubnamee="Stock Strategies & Trade Alerts";
                         var copysubname="copytrading:" + copysubnamee;
                         var trader=localStorage.getItem("traderName")
 var interest=localStorage.getItem("interest")
-                         var info=`After Day,10.80% ${interest} for 30 Days`   
+                         var info=` `   
                         var copyminimumDep=localStorage.getItem("minLimit")
                         
                         localStorage.setItem("copysubname",copysubname)
@@ -3986,7 +3991,7 @@ var interest=localStorage.getItem("interest")
                         var timestamp=new Date()
                         var balance=user.balance;
                         if (Number(copysubamount) >Number( balance)){
-                            swal.fire({
+                            swal({
                                                        title: "Insufficient Balance",
                                                        text: "You do not have enough balance for this plan.Please top up balance and try again.",
                                                        type:"danger",
@@ -3996,7 +4001,7 @@ var interest=localStorage.getItem("interest")
                         
                         }
                         else if (Number(copysubamount) < Number(copyminimumDep)){
-                            swal.fire({
+                            swal({
                                                        title: "Invalid subscription amount",
                                                        text: "Invalid Subscription amount",
                                                        type:"danger",

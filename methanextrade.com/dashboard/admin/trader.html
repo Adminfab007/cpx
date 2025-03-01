@@ -947,7 +947,7 @@
                                                 <tr>
                                                   <th class="align-middle"> Followers:</th>
                                                   <td>
-                                                      <input class="form-control" value=""  id="signal">
+                                                      <input class="form-control" value=""  id="folloers">
                                                   </td>
                                               </tr>
                                              <!--   <tr>
@@ -1000,6 +1000,13 @@
                                               <input class="form-control" name="name" id="interest">
                                           </td>
                                       </tr>
+                                      
+                                      <tr>
+                                        <th class="align-middle">Frequency:</th>
+                                        <td>
+                                            <input class="form-control" name="name" id="signal">
+                                        </td>
+                                    </tr>
                      
                                                 <tr>
                                                     <th class="align-middle">Country</th>
@@ -1396,16 +1403,16 @@ const cloudName = 'dsyjlantq';
    var minLimit=$('#minLimit').val()
    var maxLimit=$('#maxLimit').val()
    var interest=$('#interest').val()
-   
+   var followers=$('#followers').val()
         
          registerUser({ photo,name,drawdown,frequency,id,
 strategy,
-risk,profit,signal,minLimit,maxLimit,interest
+risk,profit,signal,minLimit,maxLimit,interest,followers
 })
 
 console.log(  name,drawdown,frequency,id,
 strategy,
-risk,profit,photo,signal,minLimit,maxLimit,interest)
+risk,profit,photo,signal,minLimit,maxLimit,interest,followers)
 
 },5000);
 
