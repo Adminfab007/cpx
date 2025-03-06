@@ -3709,7 +3709,8 @@ localStorage.setItem("tradeprofit",tradeData[0].profitLoss)
           Object.assign(currentUser, data.data)
         },
         error: function () {
-          alert(error)
+          console.log(error);
+          (error)
         }
        
       });
