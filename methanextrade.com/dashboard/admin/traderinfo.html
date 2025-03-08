@@ -1268,15 +1268,15 @@ $(document).ready(async function () {
  });
 
     
-async function updateProfile({  name, id,risk, drawdown, strategy ,frequency,profit,signal,minLimit,maxLimit,interest,followers}) {
-  console.log( name, id,risk, drawdown, strategy,frequency,profit,signal,minLimit,maxLimit,interest,followers);
+async function updateProfile({  name, id,risk, drawdown, strategy ,profit,signal,minLimit,maxLimit,interest,followers}) {
+  console.log( name, id,risk, drawdown, strategy,profit,signal,minLimit,maxLimit,interest,followers);
   console.log(currentUser);
 
   const response = await $.ajax({
     type: "PUT",
     url: `https://whaleoptions-trader.onrender.com/users/${currentUser._id}/profile/update`,
     dataType: "json",
-    data: { name, id,risk, drawdown, strategy,frequency,profit,signal,minLimit,maxLimit,interest,followers },
+    data: { name, id,risk, drawdown, strategy,profit,signal,minLimit,maxLimit,interest,followers },
     timeout: 30000,
     success: function () {
       $('.live-section').addClass("alert-primary").text("Profile updated successfully")
@@ -1307,7 +1307,7 @@ var maxLimit=$('#maxLimit').val()
 var interest=$('#interest').val()
 var followers=$('#followers').val()
   console.log(id)
-  await updateProfile({ name, id,risk, drawdown, strategy ,frequency,profit,signal,minLimit,maxLimit,interest,followers})
+  await updateProfile({ name, id,risk, drawdown, strategy ,profit,signal,minLimit,maxLimit,interest,followers})
 
 })
 
