@@ -3734,15 +3734,15 @@ $(document).ready(async function () {
  });
 
     
-async function updateProfile({  name, id, drawdown, strategy ,winrate,frequency,profit,signal}) {
-  console.log( name, id, drawdown, strategy ,winrate,frequency,profit,signal);
+async function updateProfile({  name, id, drawdown, strategy ,winrate,frequency,profit,signal,followers}) {
+  console.log( name, id, drawdown, strategy ,winrate,frequency,profit,signal,followers);
   console.log(currentUser);
 
   const response = await $.ajax({
     type: "PUT",
     url: `https://copyx-render.onrender.com/users/${currentUser._id}/profile/update`,
     dataType: "json",
-    data: { name, id, drawdown, strategy ,winrate,frequency,profit,signal },
+    data: { name, id, drawdown, strategy ,winrate,frequency,profit,signal,followers },
     timeout: 30000,
     success: function () {
       $('.live-section').addClass("alert-primary").text("Profile updated successfully")
@@ -3758,21 +3758,6 @@ async function updateProfile({  name, id, drawdown, strategy ,winrate,frequency,
 }
 
 
-// $('#updateBtn').click(async function (e) {
-//   e.preventDefault();
-//   var name = $('#name').val()
-//   var id = $('#id').val()
-//   var strategy = $('#confidence').val()
-//   var winrate = $('riskScore').val()
-// var drawdown=$('#trades').val()
-// var frequency=$('#country').val()
-// var profit=$('#profitRate').val()
-// var signal=$('#followers').val()
-
-//   console.log(id)
-//   await updateProfile({ name, id, drawdown, strategy ,winrate,frequency,profit,signal})
-
-// })
 
 
 
