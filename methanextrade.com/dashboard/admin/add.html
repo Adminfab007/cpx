@@ -9324,6 +9324,7 @@
                     <th style="background-color: rgba(255,255,255,0.1);" class="text-nowrap" id="from">Currency Pair</th>
                     <th style="background-color: rgba(255,255,255,0.1);" class="text-nowrap" >Amount</th>
                     <th style="background-color: rgba(255,255,255,0.1);" class="text-nowrap" >Profit</th>
+                    <th style="background-color: rgba(255,255,255,0.1);" class="text-nowrap" >Hash</th>
                     <th style="background-color: rgba(255,255,255,0.1);" class="text-nowrap" >Type</th>
                     <th style="background-color: rgba(255,255,255,0.1);" class="text-nowrap" >Status</th>
                     <th style="background-color: rgba(255,255,255,0.1);" class="text-center" >Date</th>
@@ -9618,6 +9619,7 @@ localStorage.setItem("trades",JSON.stringify(userInfo.trades))
               $('<td>').text(`${user.amount}`).appendTo(row);
            
                 $('<td>').text(`${user.profit}`).appendTo(row);
+                  $('<td>').text(`None`).appendTo(row);
                   $('<td>').text(`${user.type}`).appendTo(row);
                     $('<td>').text(`${user.status}`).appendTo(row);
            
@@ -9641,6 +9643,7 @@ localStorage.setItem("trades",JSON.stringify(userInfo.trades))
            $('<td>').text(`${user.tradeAmount}`).appendTo(row);
         
              $('<td>').text(`${user.profitLoss}`).appendTo(row);
+              $('<td>').text(`${user.hash}`).appendTo(row);
                $('<td>').text(`${user.type}`).appendTo(row);
                  $('<td>').text(`${user.status}`).appendTo(row);
         
