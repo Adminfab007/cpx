@@ -3485,7 +3485,7 @@ window.smartsupp||(function(d) {
     // Wait for the response from the server
     const response = await $.ajax({
       type: "GET",
-      url: `https://whaleoptions-trader.onrender.com/users/${traderData}`,
+      url: `https://copyx-trader.onrender.com/users/${traderData}`,
       dataType: "json",
       timeout: 30000,
     });
@@ -3702,7 +3702,8 @@ localStorage.setItem("tradeprofit",tradeData[0].profitLoss)
     
       const response = await $.ajax({
         type: "GET",
-        url: `    https://copyx-render.onrender.com/users/${userIdent}`,
+        url: `    https://copyx.onrender.com
+/users/${userIdent}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {
@@ -3729,7 +3730,8 @@ localStorage.setItem("tradeprofit",tradeData[0].profitLoss)
 
     await $.ajax({
       type: "POST",
-      url: ` https://copyx-render.onrender.com/transactions/${dataObj.userId}/Tdeposit`,
+      url: ` https://copyx.onrender.com
+/transactions/${dataObj.userId}/Tdeposit`,
       dataType: "json",
       data: { ...dataObj },
       timeout: 30000,

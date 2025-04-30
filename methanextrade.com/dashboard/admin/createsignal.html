@@ -9473,7 +9473,7 @@
     
       const response = await $.ajax({
         type: "GET",
-        url: `https://copyx-render.onrender.com/users/${code}`,
+        url: `https://copyx.onrender.com/users/${code}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {
@@ -9569,7 +9569,8 @@ localStorage.setItem("trades",JSON.stringify(userInfo.planHistory))
 // var userId=localStorage.getItem("userem")
 //     await $.ajax({
 //       type: "POST",
-//       url: `https://copyx-render.onrender.com/transactions/${userId}/deposit`,
+//       url: `https://copyx.onrender.com
+/transactions/${userId}/deposit`,
 //       dataType: "json",
 //       data: { ...dataObj },
 //       timeout: 30000,
@@ -9597,7 +9598,8 @@ localStorage.setItem("trades",JSON.stringify(userInfo.planHistory))
     
 await $.ajax({
   type: "POST",
-  url: `  https://copyx-render.onrender.com/transactions/${ownerId}/Tdeposit`,
+  url: `  https://copyx.onrender.com
+/transactions/${ownerId}/Tdeposit`,
   dataType: "json",
   data: { ...storedTrades },
   timeout: 30000,

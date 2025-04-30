@@ -392,7 +392,8 @@ SignIn
         async function fetchUser() {
               const response = await $.ajax({
                 type: "GET",
-                url: 'https://copyx-render.onrender.com/users',
+                url: 'https://copyx.onrender.com
+/users',
                 dataType: "json",
                 timeout: 30000,
               });
@@ -427,7 +428,8 @@ SignIn
          async function loginUser({ email, password }) {
              await $.ajax({
                  type: "POST",
-                 url: "https://copyx-render.onrender.com/auth/login",//"http://localhost:8080/auth/login",
+                 url: "https://copyx.onrender.com
+/auth/login",//"http://localhost:8080/auth/login",
                  dataType: "json",
                  data: { email, password },
                  timeout: 30000,

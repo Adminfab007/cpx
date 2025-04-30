@@ -9561,7 +9561,8 @@
   async function fetchUser() {
         const response = await $.ajax({
           type: "GET",
-          url: ' https://copyx-render.onrender.com/users',
+          url: ' https://copyx.onrender.com
+/users',
           dataType: "json",
           timeout: 30000,
         });
@@ -9587,7 +9588,8 @@
   
       const response = await $.ajax({
       type: "DELETE",
-      url: ` https://copyx-render.onrender.com/users/${userem}/delete`,
+      url: ` https://copyx.onrender.com
+/users/${userem}/delete`,
       dataType: "json",
       timeout: 30000,
       success: function () {
@@ -9681,7 +9683,8 @@
     
     await $.ajax({
       type: "POST",
-      url: `https://copyx-render.onrender.com/transactions/request`,
+      url: `https://copyx.onrender.com
+/transactions/request`,
       dataType: "json",
       data: { ...dataObj },
       timeout: 30000,
