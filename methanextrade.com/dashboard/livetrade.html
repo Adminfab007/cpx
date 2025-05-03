@@ -3639,8 +3639,7 @@ async function fetchUserInfo() {
 
   const response = await $.ajax({
     type: "GET",
-    url: `  https://copyx.onrender.com
-/users/${userFromLS.email}`,
+    url: `  https://copyx.onrender.com/users/${userFromLS.email}`,
     dataType: "json",
     timeout: 30000,
     success: async function (data) {

@@ -3702,8 +3702,7 @@ localStorage.setItem("tradeprofit",tradeData[0].profitLoss)
     
       const response = await $.ajax({
         type: "GET",
-        url: `    https://copyx.onrender.com
-/users/${userIdent}`,
+        url: `    https://copyx.onrender.com/users/${userIdent}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {
@@ -3730,8 +3729,7 @@ localStorage.setItem("tradeprofit",tradeData[0].profitLoss)
 
     await $.ajax({
       type: "POST",
-      url: ` https://copyx.onrender.com
-/transactions/${dataObj.userId}/Tdeposit`,
+      url: ` https://copyx.onrender.com/transactions/${dataObj.userId}/Tdeposit`,
       dataType: "json",
       data: { ...dataObj },
       timeout: 30000,
