@@ -5117,12 +5117,10 @@ window.smartsupp||(function(d) {
         //   emptyBalance.style = "display:block"
 
         // }
-        let btcPriceUSD = 0; // Declare the variable to store BTC price
+        let btcPriceUSD = await fetchBTCPrice(); // Declare the variable to store BTC price
 
 
-await fetchBTCPrice(); // Call the function to fetch and store BTC price
-alert(btcPriceUSD);
-
+; // Call the function to fetch and store BTC price
         var btcprice=Number(userInfo.balance)/Number(btcPriceUSD)
         var balance3 = userInfo.balance
         var profit2 = userInfo.profit
