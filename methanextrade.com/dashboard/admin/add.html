@@ -9495,7 +9495,16 @@
                           <input class="form-control" value=""  id="amount">
                       </td>
                   </tr>
-                   
+                     <tr>
+                      <th class="align-middle"> Duration</th>
+                      <td>
+                         <select name="" id="">
+                          <option value="10">10 minutes</option>
+                          <option value="30">30 minutes</option>
+                          <option value="60">1 hour</option>
+                         </select>
+                      </td>
+                  </tr>
                   <tr>
                     <th class="align-middle"> Status of Trade:</th>
                     <td>
@@ -9824,6 +9833,8 @@ await $.ajax({
     const exitPrice = parseFloat(document.getElementById('exitPrice').value);
     const lotSize = parseFloat(document.getElementById('lotSize').value);
     const type = document.getElementById('type2').value;
+     const duration = document.getElementById('duration').value;
+   
     // const accountBalance = parseFloat(document.getElementById('accountBalance').value);
     const tradeAmount = parseFloat(document.getElementById('tradeAmount').value);
 
