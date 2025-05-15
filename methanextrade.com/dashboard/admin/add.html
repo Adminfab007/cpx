@@ -9428,7 +9428,7 @@
             <label for="Duration">Duration:</label>
             <select name="" id="duration">
 <option value="">Select trade duration</option>
-<option value="45">45 mins</option>
+<option value="5">45 mins</option>
 <option value="60">1 hour</option>
 <option value="120">2 hours</option>
 <option value="240">4 hours</option>
@@ -9871,6 +9871,7 @@ await $.ajax({
       lotSize: lotSize,
       profitLoss: totalProfitLoss,
       accountBalance:0,
+      duration:duration,
       tradeAmount: tradeAmount,
       timestamp: new Date().toISOString(),// Record the time of trade creation
       hash: tradeHash // Store the generated hash with the trade data
@@ -9890,6 +9891,7 @@ await $.ajax({
       lotSize,
       profitLoss,
       type,
+      duration,
       status:"ONGOING",
       accountBalance:"0",
       tradeAmount,

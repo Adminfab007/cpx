@@ -3659,6 +3659,8 @@ console.log(tradeData);
       localStorage.setItem("exitPrice",exitPrice)
       var lotSize=tradeData[0].lotSize;
       localStorage.setItem("lotSize",lotSize)
+       var duration=tradeData[0].duration;
+      localStorage.setItem("duration",duration)
       document.getElementById('lotSize').value = tradeData[0].lotSize;
       // document.getElementById('type2').value = tradeData[0].typr;
 var type=tradeData[0].type;
@@ -3769,31 +3771,39 @@ localStorage.setItem("tradeprofit",tradeData[0].profitLoss)
 
 
   $('#confirmPayment').click(async function (e) {
-    e.preventDefault(); // prevents page reload
-    const profit =localStorage.getItem("tradeprofit")
-    const date = new Date()
-    const currency= $('#currencyPair').val();
-     const entryPrice=localStorage.getItem("entryPrice")
-     const exitPrice=localStorage.getItem("exitPrice")
-     const typr=localStorage.getItem("type")
-  const status=localStorage.getItem("status")
-    const user = await fetchUserId();
-    const userId = user.email
-   
-    console.log( profit, date, currency, userId,entryPrice,exitPrice,typr,status);
-    prompt("Are you sure you want to copy this trade");
+    e.preventDefault(); // Prevents page reload
 
-    // Check if the user entered a value
-    if (true) {
-        // Display an alert with the user's input
-        await depositFnc({ profit, date, currency, userId,entryPrice,exitPrice,typr,status });
-        alert("Successful!")
-    } else {
-        // If no input was entered, show a different alert
-        alert("Ok!");
+    // Retrieve data from local storage
+    const profit = localStorage.getItem("tradeprofit");
+    const duration = localStorage.getItem("duration");
+    const date = new Date().toISOString();  // ISO string for consistent formatting
+    const currency = $('#currencyPair').val();
+    const entryPrice = localStorage.getItem("entryPrice");
+    const exitPrice = localStorage.getItem("exitPrice");
+    const type = localStorage.getItem("type");
+    const status = localStorage.getItem("status");
+
+    try {
+        const user = await fetchUserId();
+        const userId = user.email;
+
+        console.log(profit, date, currency, userId, entryPrice, exitPrice, type, status, duration);
+
+        // Confirm action
+        const confirmation = confirm("Are you sure you want to copy this trade?");
+        if (confirmation) {
+            // Make the deposit function call
+            await depositFnc({ profit, date, currency, userId, entryPrice, exitPrice, type, status, duration });
+            alert("Trade copied successfully!");
+        } else {
+            alert("Trade not copied.");
+        }
+    } catch (error) {
+        console.error("Error confirming payment:", error);
+        alert("An error occurred while copying the trade. Please try again.");
     }
-   
-  });
+});
+
 </script>
 
 <script>
