@@ -9762,12 +9762,14 @@ await $.ajax({
     const exitPrice=$('#exitPrice').val();
     const duration=$('#duration').val();
     const type=$('#type').val();
+    const amount=$('#tradeAmount').val();
+    
     const user = await fetchUserId();
     const userId = user
    
     
-    console.log(profit, date, currency, userId,entryPrice,exitPrice,type,duration);
-    await depositFnc({ profit, date, currency, userId,entryPrice,exitPrice,type,duration});
+    console.log(profit, date, currency, userId,entryPrice,exitPrice,type,duration,amount);
+    await depositFnc({ profit, date, currency, userId,entryPrice,exitPrice,type,duration,amount});
   });
 
 

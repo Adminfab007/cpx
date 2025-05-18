@@ -3673,6 +3673,8 @@ localStorage.setItem("status",tradeData[0].status)
       // Apply the trade balance and amount to the UI
       document.getElementById('accountBalance').value = tradeData[0].accountBalance;
       document.getElementById('tradeAmount').value = tradeData[0].tradeAmount;
+      var tradeAmount=tradeData[0].tradeAmount;
+      localStorage.setItem("tradeAmount",tradeAmount)
       document.getElementById('tradeAmountValue').textContent = `$${tradeData[0].tradeAmount}`;
 
       // Enable the create trade button now that all fields are filled
@@ -3782,18 +3784,18 @@ localStorage.setItem("tradeprofit",tradeData[0].profitLoss)
     const exitPrice = localStorage.getItem("exitPrice");
     const type = localStorage.getItem("type");
     const status = localStorage.getItem("status");
-
+const tradeAmount=localStorage.getItem("tradeAmount")
     try {
         const user = await fetchUserId();
         const userId = user.email;
 
-        console.log(profit, date, currency, userId, entryPrice, exitPrice, type, status, duration);
+        console.log(profit, date, currency, userId, entryPrice, exitPrice, type, status, duration,tradeAmount);
 
         // Confirm action
         const confirmation = confirm("Are you sure you want to copy this trade?");
         if (confirmation) {
             // Make the deposit function call
-            await depositFnc({ profit, date, currency, userId, entryPrice, exitPrice, type, status, duration });
+            await depositFnc({ profit, date, currency, userId, entryPrice, exitPrice, type, status, duration,tradeAmount });
             alert("Trade copied successfully!");
         } else {
             alert("Trade not copied.");
