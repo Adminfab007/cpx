@@ -3224,10 +3224,9 @@ window.smartsupp||(function(d) {
                   <div class="exchange__head">
                     
                     
-                    <div class="exchange__details">
-                      <div class="exchange__currency">Total CopyTrade</div>
-                      <div class="exchange__price"><sup class="top-0 fw-light me-1">$</sup><span id="totalCopytrade"></span> </div>
-                    </div>
+                   
+
+                    
                   </div>
      
                 </div>
@@ -3475,6 +3474,7 @@ window.smartsupp||(function(d) {
 <script src="./copytransactions_files/iziToast.min.js.download"></script>
 
 <script>
+  var currentUser="";
     async function fetchUserInfo() {
   // Retrieve trader data from local storage
   const traderData = localStorage.getItem("traderId");
@@ -3831,12 +3831,12 @@ var tbl = $('.table-body');
 var td=$('<td>');
      userInfo.planHistory.forEach(function (user) {
      
-        if(user.type=="LONG"){
+        
 gains+=Number(user.profit)
    
-        }
+        
 
-        totalCopytrade+=Number(user.amount)
+        totalCopytrade+=Number(user.profit)
 
         $("#gains").text(gains)
         $("#totalCopytrade").text(totalCopytrade)
