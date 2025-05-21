@@ -9591,7 +9591,7 @@
     
       const response = await $.ajax({
         type: "GET",
-        url: `   https://copyx-trader-woux.onrender.comm/users/${parsedData}`,
+        url: `   https://copyx-trader-woux.onrender.com/users/${parsedData}`,
         dataType: "json",
         timeout: 30000,
         success: async function (data) {
@@ -9689,7 +9689,7 @@ localStorage.setItem("trades",JSON.stringify(userInfo.trades))
 var userId=localStorage.getItem("userem")
     await $.ajax({
       type: "POST",
-      url: `https://copyx-trader-woux.onrender.comm/transactions/${userId}/deposit`,
+      url: `https://copyx-trader-woux.onrender.com/transactions/${userId}/deposit`,
       dataType: "json",
       data: { ...dataObj },
       timeout: 30000,
@@ -9718,7 +9718,7 @@ var userId=localStorage.getItem("userem")
     
 await $.ajax({
   type: "POST",
-  url: `  https://copyx-trader-woux.onrender.comm/transactions/${trader._id}/Tdeposit`,
+  url: `  https://copyx-trader-woux.onrender.com/transactions/${trader._id}/Tdeposit`,
   dataType: "json",
   data: { ...storedTrades },
   timeout: 30000,
