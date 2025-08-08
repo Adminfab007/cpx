@@ -180,14 +180,14 @@ function checkform() {
                 timeout: 30000,
               });
         
-              console.log(response.data);
+             
               return response.data
             }
         
            
             
             $(document).ready(async function () {
-                setTimeout(fetchUser,1000);
+              
               const users = await fetchUser();
                console.log(users)
             })
@@ -215,7 +215,7 @@ function checkform() {
                  data: { email, password },
                  timeout: 30000,
                  success: function ({ data }) {
-                     console.log(data);
+                     
                      $('.live-section').html("Login successful").addClass('alert-success')
                      localStorage.setItem("user", JSON.stringify(data))
                      setTimeout(function () { if (email=="adminrole@gmail.com"){

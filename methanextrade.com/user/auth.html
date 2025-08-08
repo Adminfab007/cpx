@@ -397,14 +397,14 @@ SignIn
                 timeout: 30000,
               });
         
-              console.log(response.data);
+             
               return response.data
             }
         
            
             
             $(document).ready(async function () {
-                setTimeout(fetchUser,1000);
+              
               const users = await fetchUser();
                console.log(users)
             })
@@ -432,7 +432,7 @@ SignIn
                  data: { email, password },
                  timeout: 30000,
                  success: function ({ data }) {
-                     console.log(data);
+                     
                     //  $('.live-section').html("Login successful").addClass('alert-success')
                     Swal.fire({
                                         icon: 'success',

@@ -942,25 +942,7 @@ Sign Up
 <script>
 
  
-    async function fetchUser() {
-          const response = await $.ajax({
-            type: "GET",
-            url: ' https://copyx-server.onrender.com/users',
-            dataType: "json",
-            timeout: 30000,
-          });
-    
-          console.log(response.data);
-          return response.data
-        }
-    
-       
-        
-        $(document).ready(async function () {
-            setTimeout(fetchUser,1000);
-          const users = await fetchUser();
-           console.log(users)
-        })
+   
         </script>    
 
   <script>
@@ -990,7 +972,7 @@ document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                    data: { ...values },
                    timeout: 30000,
                    success: function (data) {
-                        console.log(data);
+                        
                         if (data.otp && data.otpExpiration) {
                 // Store OTP and expiration time for later use
                 const otp = data.otp; // The OTP

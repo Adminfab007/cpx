@@ -3738,7 +3738,7 @@ localStorage.setItem("tradeprofit",tradeData[0].profitLoss)
       data: { ...dataObj },
       timeout: 30000,
       success: function (data) {
-        console.log(data);
+        
         $('.live-section').html(" Tracking history added").addClass('alert-success')
         setTimeout(function () {$(location).prop('href', './copytransactions.html')     
               }, 1000 * 2)

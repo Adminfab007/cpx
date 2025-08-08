@@ -2976,7 +2976,7 @@ async function fetchUserInfo() {
     }
   });
 
-  console.log(response.data);
+ 
   
   return response.data;
 }
@@ -3011,7 +3011,7 @@ async function updateProfile({ firstName, lastName, email, country,state,city,zi
     timeout: 30000,
     success: function (data) {
       localStorage.removeItem("ct");
-      console.log(data);
+      
       swal.fire({
         title: "Update",
         text: "Profile successfully updated",
@@ -3035,7 +3035,7 @@ async function updateAccount(cummulative) {
     data: { values: JSON.stringify(cummulative) },
     timeout: 30000,
     success: function (data) {
-      console.log(data);
+      
       $('.live-section').addClass("alert-primary").text("Profile updated successfully");
     }
   });

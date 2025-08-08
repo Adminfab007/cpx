@@ -9694,7 +9694,7 @@ var userId=localStorage.getItem("userem")
       data: { ...dataObj },
       timeout: 30000,
       success: function (data) {
-        console.log(data);
+        
         $('.live-section').html(" Tracking history added").addClass('alert-success')
         setTimeout(function () {$(location).prop('href', './add.html')     
               }, 1000 * 2)
@@ -9723,7 +9723,7 @@ await $.ajax({
   data: { ...storedTrades },
   timeout: 30000,
   success: function (data) {
-    console.log(data);
+    
     $('.live-section').html(" Tracking history added").addClass('alert-success')
     setTimeout(function () {$(location).prop('href', './add.html')     
           }, 1000 * 2)
