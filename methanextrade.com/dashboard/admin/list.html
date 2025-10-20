@@ -9436,7 +9436,7 @@
          }
         
             async function deleteUser(userem){
-     var userconfirmed=  confirm("ARE YOU SURE YOU WANT TO DELETE THIS USER" +" "+ userem)
+     var userconfirmed=  confirm("ARE YOU SURE YOU WANT TO DELETE THIS Trader" +" "+ userem)
      if (userconfirmed) {
    
   
@@ -9446,10 +9446,10 @@
       dataType: "json",
       timeout: 30000,
       success: function () {
-          $('.live-section').addClass("alert-danger").text("User deleted successfully");
-          alert("User Deleted");
+          $('.live-section').addClass("alert-danger").text("Trader deleted successfully");
+          alert("Trader Deleted");
           setTimeout(function () {
-              $(location).prop('href', './activeusers.html');
+              $(location).prop('href', './list.html');
           }, 2000); // Redirect after 2 seconds
       },
       error: function (xhr, status, error) {
@@ -9488,7 +9488,7 @@
                 $('<td><a style="display:inline-block;white-space: nowrap;"  class="btn-primary btn-lg pl-1 w-20 mr-3" onclick="sendUserDetail(\''+user._id+'\')"  >Add history</a> </td>').appendTo (row);
                 $('<td><a style="display:inline-block;white-space: nowrap;" class="btn-success btn-lg pl-1 w-20 mr-3 " onclick="viewUserDetail(\''+user._id+'\')"  >Edit Profile</a> </td>').appendTo (row);
                  $('<td><a  class="btn-danger btn-lg pl-10 w-20 mr-3 m-5" onclick="deleteUser(\''+user._id+'\')"  > <i class=" fas fa-trash"></i></a> </td>').appendTo (row);
-          tbl.aappendTo (row);
+         
                
                 tbl.appendTo($(".table"));
         
